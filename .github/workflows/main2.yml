@@ -1,0 +1,16 @@
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
+        with:
+          hostname: 'https://cphost.hosttechno.com'
+          repository_root: '/home2/devopshostserver/repositories/WordPress'
+          branch: master
+          cpanel_username: devopshostserver
+          cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
