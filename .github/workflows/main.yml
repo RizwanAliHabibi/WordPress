@@ -8,9 +8,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v4
-    
     - name: 📂 Sync Deployment Files
       uses: burnett01/rsync-deployments@5.2
       with:
@@ -20,4 +17,4 @@ jobs:
         remote_path: /home2/devopshostserver/public_html/
         remote_key: ${{ secrets.SSH_KEY }}
         remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
-        switches: -avrz --exclude=.git* --exclude=README.md --exclude=readme.md --exclude=.gitignore
+        switches: -avrz -- delete--exclude=.git* --exclude=README.md --exclude=readme.md --exclude=.gitignore
