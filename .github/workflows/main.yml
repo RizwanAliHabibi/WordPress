@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get Latest Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     
     - name: 📂 Sync Deployment Files
       uses: burnett01/rsync-deployments@5.2
@@ -20,5 +20,5 @@ jobs:
         remote_path: /home2/devopshostserver/public_html/
         remote_key: ${{ secrets.SSH_KEY }}
         remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
-        path: ./
+        path: ./WordPress/
         switches: -avrz --exclude=.git* --exclude=README.md --exclude=readme.md --exclude=.gitignore
