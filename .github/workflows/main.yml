@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get Latest Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
     
     - name: 📂 Sync Deployment Files
       uses: burnett01/rsync-deployments@5.2
