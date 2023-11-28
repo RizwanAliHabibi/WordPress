@@ -1,21 +1,22 @@
-on: push
-name: 🚀 Deploy website on push
+name: Deploy on each commit
+on:
+  push:
+    branches:
+    - main
+
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - uses: actions/checkout@v2
+    - name: 🚀 rsync deployments
+      uses: burnett01/rsync-deployments@5.2
       with:
-        server: ftp.devops.hostserver.link
-        username: cpanel@devops.hostserver.link
-        password: ${{ secrets.FTP_PASS }}
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          fileToExclude.txt
+        remote_host: cphost.hosttechno.com
+        remote_port: 2303
+        remote_user: devopshostserver
+        remote_path: /home2/devopshostserver/public_html/
+        remote_key: ${{ secrets.SSH_KEY }}
+        remote_password: ${{ secrets.SSH_PASS }}
+        remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
+        switches: -avzr --delete --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
