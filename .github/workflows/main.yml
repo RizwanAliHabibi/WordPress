@@ -20,5 +20,4 @@ jobs:
         remote_path: /home2/devopshostserver/public_html/
         remote_key: ${{ secrets.SSH_KEY }}
         remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
-        path: WordPress/
         switches: -avrz --exclude=.git* --exclude=README.md --exclude=readme.md --exclude=.gitignore
