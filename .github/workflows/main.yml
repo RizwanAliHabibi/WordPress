@@ -18,3 +18,4 @@ jobs:
         remote_key: ${{ secrets.SSH_KEY }}
         remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
         switches: -avrz -- delete--exclude=.git* --exclude=README.md --exclude=readme.md --exclude=.gitignore
+        path: ./
