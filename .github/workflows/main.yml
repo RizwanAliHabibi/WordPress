@@ -10,7 +10,7 @@ jobs:
     - name: 🚚 Get Latest Code
       uses: actions/checkout@v4
     - name: 📂 Sync Deployment Files
-      uses: RizwanAliHabibi/rsync-deployments@1
+      uses: burnett01/rsync-deployments@6.0.0
       with:
         remote_host: cphost.hosttechno.com
         remote_port: 2303
