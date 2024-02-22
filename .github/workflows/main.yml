@@ -18,4 +18,4 @@ jobs:
         remote_path: /home2/devopshostserver/public_html/
         remote_key: ${{ secrets.SSH_KEY }}
         remote_key_pass: ${{ secrets.SSH_KEY_PASS }}
-        switches: -avrz 
+        switches: -vc 
